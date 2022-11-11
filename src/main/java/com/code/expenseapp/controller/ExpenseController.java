@@ -24,7 +24,12 @@ public class ExpenseController {
     }
 
     @DeleteMapping("/expenses")
-    public String deleteExpenseById(@RequestParam Long id) {
-        return "Delete the expense object by id  it's id : " + id;
+    public void deleteExpenseById(@RequestParam Long id) {
+        expenseService.deleteExpenseById(id);
+    }
+
+    @PostMapping("/expenses")
+    public Expense saveExpenseDetails(@RequestBody Expense expense) {
+        return expenseService.saveExpenseDetails(expense);
     }
 }
