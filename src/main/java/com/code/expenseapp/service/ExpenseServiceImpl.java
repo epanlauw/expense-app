@@ -1,14 +1,13 @@
 package com.code.expenseapp.service;
 
 import com.code.expenseapp.entity.Expense;
-import com.code.expenseapp.exceptions.ExpenseNotFoundException;
+import com.code.expenseapp.exceptions.ResourceNotFoundException;
 import com.code.expenseapp.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,7 +29,7 @@ public class ExpenseServiceImpl implements ExpenseService{
             return expense.get();
         }
 
-        throw new ExpenseNotFoundException("Expense is not found for the id: " + id);
+        throw new ResourceNotFoundException("Expense is not found for the id: " + id);
     }
 
     @Override
