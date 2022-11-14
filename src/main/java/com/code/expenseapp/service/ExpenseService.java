@@ -1,12 +1,14 @@
 package com.code.expenseapp.service;
 
 import com.code.expenseapp.entity.Expense;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface ExpenseService {
 
-    List<Expense> getAllExpenses();
+    Page<Expense> getAllExpenses(Pageable page);
 
     Expense getExpenseById(Long id);
 
